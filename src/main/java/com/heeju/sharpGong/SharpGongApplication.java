@@ -9,5 +9,5 @@ public class SharpGongApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SharpGongApplication.class, args);
 	}
-	
+
 }
