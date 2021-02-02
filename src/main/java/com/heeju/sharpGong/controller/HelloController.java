@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HelloController {
 
     @GetMapping("/")
-    public String Hello(){
-        return "home";
+    public String Hello(Model model){
+//        model.addAttribute("loginForm", new LoginForm());
+//        return "/login";
+        model.addAttribute("data","hello");
+        return "/home";
     }
 }
