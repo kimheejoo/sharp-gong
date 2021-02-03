@@ -26,12 +26,19 @@ public class MemberService {
     }
 
     //로그인
-    public Boolean Login(@Valid LoginForm login){
+    public Member Login(@Valid LoginForm login){
         Member member = memberRepository.findById(login.getMemberId());
         if (member.getMemberPassword().equals(login.getMemberPassword())){
-            return true;
+            return member;
         }
-        return false;
+        return null;
+    }
+    public List<Member>  findAll(){
+        return memberRepository.findAll();
+    }
+
+    public Member findById(String memberId){
+        return memberRepository.findById(memberId);
     }
 
 }

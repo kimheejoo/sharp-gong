@@ -9,9 +9,7 @@ public class HelloController {
 
     @GetMapping("/")
     public String Hello(Model model){
-//        model.addAttribute("loginForm", new LoginForm());
-//        return "/login";
-        model.addAttribute("data","hello");
-        return "/home";
+        model.addAttribute("loginForm", new LoginForm());
+        return "/login";
     }
 }

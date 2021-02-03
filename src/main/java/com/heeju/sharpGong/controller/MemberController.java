@@ -28,27 +28,33 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public String login(@PathVariable("memberId") Long id, @Valid LoginForm form, BindingResult result) {
+    public String login(@Valid LoginForm form, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "/login";
         }
-        if (memberService.Login(form)){
-            return "/members/{memberId}/todo";
+        Member member = memberService.Login(form);
+        if (member!=null){
+            model.addAttribute("member",member);
+            return "redirect:/member/"+member.getMemberId()+"/todo";
         }
         else{
             return "/login";
         }
     }
+    @GetMapping("/member/{memberId}/todo")
+    public String userHome(@PathVariable("memberId") String memberId){
+        return "/";
+    }
 
-    @GetMapping("/members/register")
+    @GetMapping("/member/register")
     public String registerForm(Model model){
         model.addAttribute("memberForm", new MemberForm());
         return "/members/createMemberForm";
     }
-    @PostMapping("/members/register")
+    @PostMapping("/member/register")
     public String registerMember(@Valid MemberForm form, BindingResult result){
         if(result.hasErrors()){
-            return "/members/register";
+            return "redirect:/members/register";
         }
         Member member = new Member();
         member.setMemberId(form.getMemberId());
