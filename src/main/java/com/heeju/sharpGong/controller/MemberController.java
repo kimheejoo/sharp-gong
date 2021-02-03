@@ -42,8 +42,9 @@ public class MemberController {
         }
     }
     @GetMapping("/member/{memberId}/todo")
-    public String userHome(@PathVariable("memberId") String memberId){
-        return "/";
+    public String userHome(@PathVariable("memberId") String memberId, Model model){
+        model.addAttribute("data",memberId);
+        return "/home";
     }
 
     @GetMapping("/member/register")

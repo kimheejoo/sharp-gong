@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Hello</title>
+    <title>샾공</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <style>
@@ -29,7 +29,7 @@
         </div>
         <button type="submit" class="btn btn-primary">로그인</button>
     </form>
-    <a th:href="@{/member/register}" class="btn btn-primary" role="button">회원가입</a>
+    <button class="btn btn-primary"><a th:href="@{/member/register}" class="btn btn-primary" role="button">회원가입</a></button>
     <br/>
     <div th:replace="fragments/footer :: footer" />
 </div> <!-- /container -->
