@@ -1,9 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>샾공</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
+<head th:replace="fragments/header :: header" />
 <style>
     .fieldError {
         border-color: #bd2130;
@@ -27,9 +24,9 @@
                    th:class="${#fields.hasErrors('memberPassword')}? 'form-control fieldError' : 'form-control'">
             <p th:if="${#fields.hasErrors('memberPassword')}" th:errors="*{memberPassword}">Incorrect date</p>
         </div>
-        <button type="submit" class="btn btn-primary">로그인</button>
+            <button type="submit" class="btn btn-primary">로그인</button>
     </form>
-    <button class="btn btn-primary"><a th:href="@{/member/register}" class="btn btn-primary" role="button">회원가입</a></button>
+    <button class="btn btn-primary" onclick="location.href='/member/register'">회원가입</button>
     <br/>
     <div th:replace="fragments/footer :: footer" />
 </div> <!-- /container -->
