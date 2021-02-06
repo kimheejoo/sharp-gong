@@ -25,7 +25,8 @@ module.exports = {
         ..._proxy,
         {
           target: 'http://localhost:8080',
-          context: ['/api']
+          context: ['/api'],
+          pathRewrite: {'^/api' : ''}
         }
       ]
       const config = configFunction(proxy, allowdHost);
