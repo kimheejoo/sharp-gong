@@ -15,7 +15,10 @@ const Login: React.FC = () => {
   const submitHandler = React.useCallback((form) => {
     fetch('/login', {
       method: 'post',
-      body: form
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8"
+      },
+      body: JSON.stringify(form)
     });
   }, []);
   return (

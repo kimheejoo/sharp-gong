@@ -43,11 +43,21 @@ public class MemberController {
         }
     }
  */
+    /*
     @PostMapping("/login")
     public @ResponseBody Member login(@RequestBody LoginForm form){
         return memberService.Login(form);
     }
-
+*/
+    @PostMapping(value= "/login", produces = "application/json; charset=UTF-8")
+    @ResponseBody
+    public String login(@RequestBody LoginForm form){
+        if(memberService.Login(form)!=null)
+        {
+            return "{status:200}";
+        }
+        else return "{status:401}";
+    }
     @GetMapping("/member/{memberId}/todo")
     public String userHome(@PathVariable("memberId") String memberId, Model model){
         model.addAttribute("data",memberId);
