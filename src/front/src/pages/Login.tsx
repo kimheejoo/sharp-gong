@@ -13,7 +13,10 @@ const tailLayout = {
 
 const Login: React.FC = () => {
   const submitHandler = React.useCallback((form) => {
-
+    fetch('/login', {
+      method: 'post',
+      body: form
+    });
   }, []);
   return (
     <Wrapper>
