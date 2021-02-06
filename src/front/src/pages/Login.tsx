@@ -13,7 +13,7 @@ const tailLayout = {
 
 const Login: React.FC = () => {
   const submitHandler = React.useCallback((form) => {
-    
+
   }, []);
   return (
     <Wrapper>
@@ -21,19 +21,19 @@ const Login: React.FC = () => {
       <Content>
         <Form
           {...layout}
-          initialValues={{username: '', password: ''}}
+          initialValues={{memberId: '', memberPassword: ''}}
           onFinish={submitHandler}
         >
           <Form.Item
             label="아이디"
-            name="username"
+            name="memberId"
             rules={[{ required: true, message: '아이디를 입력해주세요.' }]}
           >
             <Input />
           </Form.Item>
           <Form.Item
             label="비밀번호"
-            name="password"
+            name="memberPassword"
             rules={[{ required: true, message: '비밀번호를 입력해주세요.' }]}
           >
             <Input.Password />
