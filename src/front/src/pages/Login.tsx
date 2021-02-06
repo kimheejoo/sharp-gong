@@ -13,7 +13,7 @@ const tailLayout = {
 
 const Login: React.FC = () => {
   const submitHandler = React.useCallback((form) => {
-    fetch('/login', {
+    fetch('/api/login', {
       method: 'post',
       headers: {
         "Content-Type": "application/json;charset=UTF-8"
