@@ -64,24 +64,25 @@ public class MemberController {
         return "/home";
     }
 
+    /*
     @GetMapping("/member/register")
     public String registerForm(Model model){
         model.addAttribute("memberForm", new MemberForm());
         return "/members/createMemberForm";
     }
-    @PostMapping("/member/register")
-    public String registerMember(@Valid MemberForm form, BindingResult result){
-        if(result.hasErrors()){
-            return "redirect:/members/register";
-        }
+
+     */
+    @PostMapping(value = "/member/register",produces = "application/json; charset=UTF-8")
+    @ResponseBody
+    public String registerMember(@RequestBody MemberForm memberForm){
         Member member = new Member();
-        member.setMemberId(form.getMemberId());
-        member.setMemberPassword(form.getMemberPassword());
-        if(form.getNickname() != null){
-            member.setNickname(form.getNickname());
+        member.setMemberId(memberForm.getMemberId());
+        member.setMemberPassword(memberForm.getMemberPassword());
+        if (memberForm.getMemberNickname()!=null){
+            member.setMemberNickname(memberForm.getMemberNickname());
         }
         memberService.join(member);
-        return "redirect:/";
+        return "{status:200}";
     }
 
 }
