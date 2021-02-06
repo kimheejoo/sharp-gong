@@ -18,5 +18,18 @@ module.exports = {
       },
       javascriptEnabled: true
     })
-  )
+  ),
+  devServer: (configFunction) => {
+    return (_proxy, allowdHost) => {
+      const proxy = [
+        ..._proxy,
+        {
+          target: 'http://localhost:8080',
+          context: ['/api']
+        }
+      ]
+      const config = configFunction(proxy, allowdHost);
+      return config;
+    }
+  }
 }
