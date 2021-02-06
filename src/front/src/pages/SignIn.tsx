@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from '@emotion/styled';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button } from 'antd';
+import { Layout, H1, Content } from '@src/components/common/styles';
 
 const layout = {
   labelCol: { span: 2 },
@@ -22,7 +22,7 @@ const Login: React.FC = () => {
     });
   }, []);
   return (
-    <Wrapper>
+    <Layout>
       <H1>Login</H1>
       <Content>
         <Form
@@ -51,25 +51,9 @@ const Login: React.FC = () => {
           </Form.Item>
         </Form>
       </Content>
-    </Wrapper>
+    </Layout>
   )
 }
-
-
-const H1 = styled.div`
-  padding: 10px;
-  font-size: 28px;
-  border-bottom: 1px solid #333;
-`;
-
-const Content = styled.div`
-  margin-top: 20px;  
-`;
-
-const Wrapper = styled.div`
-  width: 1200px;
-  margin: 30px auto;
-`;
 
 Login.displayName = 'Login';
 export default Login;
