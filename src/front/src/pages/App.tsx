@@ -4,7 +4,8 @@ import {Global, css} from '@emotion/react';
 
 import Home from './Home';
 // import Header from '../components/layout/Header';
-const LoginPage = React.lazy(() => import('./Login'));
+const SignIn = React.lazy(() => import('@src/pages/SignIn'));
+const SignUp = React.lazy(() => import('@src/pages/SignUp'));
 
 const App: React.FC = () => {
   
@@ -15,7 +16,8 @@ const App: React.FC = () => {
       <React.Suspense fallback="">
         <Router>
           <Switch>
-            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/signin" component={SignIn} />
+            <Route exact path="/signup" component={SignUp} />
             <Route exact path="/" component={Home} />
           </Switch>
         </Router>
