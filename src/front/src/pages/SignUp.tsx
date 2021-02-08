@@ -29,13 +29,13 @@ const SignUp: React.FC = () => {
       <Content>
         <Form
             {...layout}
-            initialValues={{memberId: '', memberPassword: ''}}
+            initialValues={{memberEmail: '', memberPassword: ''}}
             onFinish={submitHandler}
           >
             <Form.Item
               label="아이디"
-              name="memberId"
-              rules={[{ required: true, message: '아이디를 입력해주세요.' }]}
+              name="memberEmail"
+              rules={[{ required: true, message: '이메일을 입력해주세요.' }]}
             >
               <Input />
             </Form.Item>
